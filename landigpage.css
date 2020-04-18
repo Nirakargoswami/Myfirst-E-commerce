@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  background-color: #f1f1f1;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.Mainbar {
+  display: flex;
+  height: 50px;
+  padding: 7px;
+  flex-flow: row wrap;
+  background-color: blue;
+  justify-content: space-around;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+.Searchbar {
+  color: black;
+  border-radius: 20px;
+  font-size: 18px;
+  border-style: none;
+  padding: 7px;
+  height: 1cm;
+  width: 15cm;
+}
+.button {
+  margin-left: 10px;
+  width: 50px;
+
+  border: 2px solid blue;
+}
+.Logo {
+  width: 2cm;
+  background-color: red;
+
+  margin-left: 1.5cm;
+  height: 1cm;
+}
+.Dropedown {
+  display: block;
+  background-color: blue;
+  min-width: 2.9cm;
+  overflow: hidden;
+  padding: 5px;
+  height: auto;
+  font-size: 19px;
+  color: white;
+  font-size: 20px;
+  border-style: none;
+}
+.Moreitem {
+  position: absolute;
+  margin-top: 5px;
+  display: none;
+  min-width: 2.9cm;
+
+  height: auto;
+  border-style: none;
+  z-index: 6;
+  background-color: white;
+}
+.Moreitem a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  margin-top: 5px;
+}
+.Dropedown:hover .Moreitem {
+  display: block;
+}
+
+.scale-down {
+  object-fit: scale-down;
+}
+
+img {
+  height: 1cm;
+  width: 2cm;
+  border-radius: 2px;
+}
+.Cart {
+  font-size: 20px;
+  background-color: blue;
+  color: white;
+  border-style: none;
+  margin-top: 6px;
+}
+
+/*category     */
+.Category {
+  display: flex;
+  height: 1.2cm;
+  position: relative;
+
+  flex-flow: row wrap;
+  background-color: rgb(255, 255, 255);
+  justify-content: space-around;
+  width: 100%;
+  z-index: 6;
+}
+/* Categaries */
+div.Categaries {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-style: none;
+  width: auto;
+  padding-right: 2px;
+  height: 0.8cm;
+  padding-top: 10px;
+}
+
+.Cart_Button {
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  border-style: none;
+}
+/* landing page */
+
+.Main {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+  position: relative;
+}
+
+/* Filter section  */
+.Filter {
+  border: 2px dotted green;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 6cm;
+  margin-right:1cm;
+ position: relative;
+}
+.Filter_Block {
+  border: 1px solid yellow;
+  height: 1cm;
+  width: 5cm;
+  overflow: hidden;
+  display: block;
+  height: auto;
+  width: auto;
+}
+.Li_style{
+  margin-bottom: 0.2cm;
+}
+.Filter_Block:hover .Show_filter{
+  display: block;
+}
+
+.Show_filter{
+  display: none;
+}
+/* product page */
+.Product {
+  border: 5px dotted red;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  
+  
+}
+.Product_Main {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.Product_Link {
+  color: rgb(48, 45, 45);
+}
+.Prodduct_Discription {
+  display: flex;
+  height: auto;
+  width: auto;
+  color: black;
+}
+.Product_Filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: black;
+  height: auto;
+  width: auto;
+  margin: 0.3cm;
+  justify-content: space-evenly;
+}
+
+.Product_container {
+  border: 1px solid grey;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+.Differ_product {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  border: 1px dotted violet;
+}
+.Main_Product {
+  border: 0.5px dotted green;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.Main_Product:hover {
+  z-index: 0;
+}
+
+.Little_Discription {
+  color: Black;
+  overflow-wrap: break-word;
+}
+.Image {
+  height: auto;
+  width: auto;
+  border: 1px solid black;
+}
+
+.Hidden_component {
+  color: black;
+
+  border: 1px black dotted;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.Hide {
+  display: none;
+}
+.Hide:hover {
+  display: initial;
+}

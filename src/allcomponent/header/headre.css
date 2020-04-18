@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Layout  */
+
+.Mainbox {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000%;
+  margin: 0;
+  background-color: rgba(41, 41, 238, 0.904);
+  padding: 5px;
+}
+
+/* Navigation */
+
+.contaniar {
+  display: flex;
+  flex-direction: row;
+}
+.Spacearround {
+  justify-content: space-around;
+}
+.Center {
+  align-items: center;
+}
+.box1 {
+  max-width: 25%;
+}
+
+.box2 {
+  width: 50%;
+}
+.box3 {
+  width: 75%;
+}
+
+.Navigation {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  margin-top: 0.5em;
+}
+
+.Logo {
+  max-width: 100%;
+  color: white;
+  object-fit: cover;
+  margin: 0.4em;
+}
+
+/* search  bar */
+.Searchebox {
+  display: flex;
+
+  max-width: 100%;
+}
+.Input {
+  width: 100%;
+  border-style: none;
+  font-size: 1.2rem;
+  border-radius: 2px;
+}
+
+button {
+  text-decoration: none;
+  border-style: none;
+  margin: 0;
+  color: white;
+  width: 100%;
+  background-color: transparent;
+}
