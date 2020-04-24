@@ -39,7 +39,7 @@ export default class App extends Component {
     console.log(this.state.List);
     return (
       <div>
-   
+     <h1>Nirlarl</h1>
           <Route exact path="/" component={LAndingpage} />
 
           <div
