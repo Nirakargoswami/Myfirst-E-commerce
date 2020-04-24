@@ -6,8 +6,139 @@
   display: block;
 }
 
+.CHECK {
+  border: 1px black solid;
+  color: red;
+  margin-top: 1em;
+}
+.CHEC {
+  border: 1px black solid;
+  color: red;
+  margin-top: 0.6em;
+}
 
-.CHECK{
-    border: 1px black solid;
-    color: red;
+.Mainbox_Product {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-direction: column;
+}
+
+.Mainbox_Item {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.Item {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  margin-top: 0.5em;
+}
+
+.Product_Imagebox {
+  min-width: 30%;
+  border: 1px solid black;
+}
+.Image {
+  object-fit: cover;
+  width: 100%;
+}
+
+.Product_Description {
+  width: 70%;
+  border: 1px solid black;
+
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+}
+
+.TITLE {
+  font-size: 1rem;
+  color: black;
+  word-break: break-all;
+}
+.DESCRI_Item {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  align-items: center;
+}
+.DESCRI_Ite {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.CARD {
+  min-width: 30%;
+}
+
+
+.Mainbox_Filter {
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  margin: 0;
+
+  align-items: center;
+  color: black;
+  background-color: blue;
+}
+
+button :hover .FILTER_ITEM {
+  display: block;
+}
+.TITL {
+  font-size: 1rem;
+  color: black;
+  word-break: break-all;
+}
+.STICKY_CARD {
+  position: sticky;
+  z-index: 50;
+  top: 0em;
+}
+
+.FILTER_ITEMBOX {
+
+
+  color: black;
+ width: 100%;
+  border: 1px solid black;
+  z-index: 30;
+}  
+
+.FILTER_BOX {
+  color: black;
+ 
+
+  min-width: 50%;
+  border: 1px solid black;
+}
+
+
+.FILTER_LIST{
+  display: flex;
+  flex-direction: column;
+   color:black;
+   align-items: flex-start;
+   background-color: blue;
+  width: 100%;
+}
+.DESCRI_FILTERITEM {
+
+  display: flex;
+  flex-direction: row;
+
 }

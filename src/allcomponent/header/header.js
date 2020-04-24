@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import "./headre.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import bar from '../../bar.svg'
+import  Bar from   "/home/bhumika/nirakar/travell-app/src/bar.svg";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faHome,
@@ -14,13 +14,25 @@ import LOGOIMAGE from "/home/bhumika/nirakar/travell-app/src/logo.png";
 library.add(faHome, faCartArrowDown, faSearch, faSdCard);
 
 export default class header extends Component {
+constructor(props) {
+  super(props)
+  this.state = {
+
+
+  }
+}
+
+Change = (e) => {
+this.props.Change(e);
+}
+
   render() {
     return (
       <div className="Mainbox">
         <div className=" Navigation contaniar ">
           <div className="box2  Center contaniar">
             <div className="box1 Logo ">
-              <bar />
+              <img src={Bar} alt=""/>
             </div>
             <div className="box3">
               <img className="Logo" src={LOGOIMAGE} alt="flipcart" />
@@ -55,6 +67,7 @@ export default class header extends Component {
             className="Input"
             type="text"
             placeholder="sercehe here products and item "
+            onChange = { this.Change} 
           />
 
           <div className="box1">
