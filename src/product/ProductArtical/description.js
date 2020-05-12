@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 import "/home/bhumika/nirakar/travell-app/src/product/product.css";
+import { BUYNOW } from "../product_action";
+import { connect } from "react-redux";
+import { ADDTOCART } from "../product_action";
+import { Link } from "react-router-dom";
 
-export default class description extends Component {
+class description extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
+    console.log(this.props.ITEMDATA);
+    console.log(this.props.Itam.title)
+    console.log(this.props.Itam)
     return (
       <div>
-        <div key={this.props.Itam.indexValue} className="Item">
+        <div className="Item">
           <div key={this.props.Itam.indexValue} className="Product_Imagebox">
             <img
               key={this.props.Itam.indexValue}
@@ -18,7 +25,29 @@ export default class description extends Component {
               src={this.props.PIC}
               alt=""
             />
+            <div>
+              <Link to={`/CARTPAGE/`}>
+                <button
+                  onClick={() => this.props.Buynow(this.props.Itam)}
+                  style={{ marginTop: "1em" }}
+                  className="button"
+                >
+                  By now
+                </button>
+              </Link>
+            </div>
+            <div>
+              <button
+                onClick={() => 
+                  this.props.ADDTOCART(this.props.Itam.title)}
+                style={{ marginTop: "1em" }}
+                className="button"
+              >
+                add to cart
+              </button>
+            </div>
           </div>
+
           <div key={this.props.Itam.indexValue} className="Product_Description">
             <div className="CHEC" style={{ width: "100%" }}>
               <h4 className="TITLE" key={this.props.Itam.indexValue}>
@@ -80,3 +109,16 @@ export default class description extends Component {
     );
   }
 }
+const mapDispatchToProps = (Dispatch) => {
+  return {
+    Buynow: (Item) => Dispatch(BUYNOW(Item)),
+    ADDTOCART: (payload) => Dispatch(ADDTOCART(payload)),
+  };
+};
+const mapStatetoProps = (state) => {
+  return {
+    ITEMDATA: state.CARTDATA.CARTITEM
+  };
+
+}
+export default connect(mapStatetoProps, mapDispatchToProps)(description);

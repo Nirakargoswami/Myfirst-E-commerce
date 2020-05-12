@@ -2,21 +2,46 @@ import React, { Component } from "react";
 import "/home/bhumika/nirakar/travell-app/src/product/product.css";
 import DESCRIPTIONBOX from "./description";
 
-export default class Prouctartical extends Component {
+import { Link } from "react-router-dom";
+
+import { connect } from "react-redux";
+
+class Prouctartical extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      DATA: [],
+      NEWDATA: [],
+
       image: [],
       display: false,
+      CART_display: false,
       Check: false,
+      DAT: [],
     };
   }
-
+  unsubscribeFromAuth = null;
   componentDidMount() {
-    this.setState({ DATA: this.props.DATA });
-    this.setState({ image: this.props.DATA[0].images });
+    const NEWTitle = this.props.NEWDATA;
+
+    const MYDATA = this.props.DATA;
+
+    const REGX = /[/]/gi;
+    const Data = [];
+    console.log(
+      MYDATA.map((x) =>
+        x.map((x) =>
+          x.title.toLowerCase().replace(REGX, "") === NEWTitle.toLowerCase()
+            ? Data.push(x)
+            : ""
+        )
+      )
+    );
+    console.log(Data);
+    console.log(Data[0].images[0]);
+    this.setState({ DAT: Data });
+    this.setState({ image: Data[0].images[0] });
   }
+
   ONCHANGE = () => {
     this.setState(
       (previous) => ({
@@ -26,9 +51,16 @@ export default class Prouctartical extends Component {
     );
   };
 
+  ONCHANGE_CART = () => {
+    this.setState(
+      (previous) => ({ CART_display: !previous.CART_display }),
+      console.log("this.function is called")
+    );
+  };
+
   HIGH_PRICECHANGE = (previous) => {
     this.setState((previous) => ({
-      DATA: this.state.DATA.sort(
+      DATA: this.state.DAT.sort(
         (x, y) =>
           parseInt(x.sellingPrice.replace(/[,₹]/g, "")) -
           parseInt(y.sellingPrice.replace(/[,₹]/g, ""))
@@ -38,16 +70,16 @@ export default class Prouctartical extends Component {
   };
 
   render() {
-    const DATA2 = this.state.image[0];
-
-    console.log(this.state.DATA);
+    console.log(this.props);
+    console.log(this.props.CARTITEM);
+    const DATA2 = this.state.image;
     return (
       <div>
         <div className="STICKY_CARD">
           <div className="Mainbox_Filter">
             <div className="FILTER_BOX">
-              <button>
-                <h3 className="TITL">FILTER</h3>
+              <button onClick={this.ONCHANGE_CART}>
+                MY CART
               </button>
             </div>
             <div className="FILTER_BOX">
@@ -56,6 +88,21 @@ export default class Prouctartical extends Component {
               </button>
             </div>
           </div>
+
+          <div
+            style={{
+              display: this.state.CART_display ? "block" : "none",
+            }}
+          >
+            <div>ITEM Name</div>
+
+            <Link to= {`/CARTPAGE`}>
+              <button   style={{ backgroundColor: "pink" }}>
+                <h3>CHECK OUT ALL ITEM</h3>
+              </button>
+            </Link>
+          </div>
+
           <div
             style={{
               display: this.state.display ? "block" : "none",
@@ -96,7 +143,7 @@ export default class Prouctartical extends Component {
           {/*proct item   */}
 
           <div className="Mainbox_Item">
-            {this.state.DATA.map((x) => (
+            {this.state.DAT.map((x) => (
               <DESCRIPTIONBOX Itam={x} PIC={DATA2} />
             ))}
           </div>
@@ -107,3 +154,14 @@ export default class Prouctartical extends Component {
     );
   }
 }
+
+const mapStateToprops = (state) => {
+  return {
+    DATA: state.CARTDATA.DATA,
+    CARTITEM : state.CARTDATA.CARTITEM
+  };
+};
+
+
+
+export default connect(mapStateToprops, null)(Prouctartical);

@@ -1,63 +1,70 @@
 /* eslint-disable no-undef */
 import React, { Component } from "react";
-import { Route} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import "./allcomponent/header/headre.css";
 import LAndingpage from "./landigpage/landingpage";
-import DATA from "./alldata/alldata";
+import LOGINLOGOUT from "./LOGINLOGOUT /LOGPAGE";
+import { auth, userprofile } from "./Firebaseconfiguration/firebase";
 import productpage from "./product/product";
-
-export default class App extends Component {
+import { Courrentuser } from "./redux/action";
+import { connect } from "react-redux";
+import Cartpage from "./CARTPAGE/Cartpage";
+class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: "true",
-      data: [],
-      Title: "",
-
-      List: [],
-    };
+    this.state = {};
   }
+  unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const TITLE = [];
-    DATA.map((x) => x.map((y) => TITLE.push(y.title)));
-    this.setState({ data: TITLE });
+    auth.onAuthStateChanged((user) => {
+      this.props.courentuser(user);
+    });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userinfo = await userprofile(user);
+        userinfo.onSnapshot((snapeshot) => {
+          this.setState({
+            user: {
+              id: snapeshot.id,
+              ...snapeshot.data(),
+            },
+          });
+        });
+      }
+    });
   }
 
-  Change = (e) => {
-    const ListM = [];
-    this.state.data.map((x) =>
-      x.toLowerCase().includes(this.state.Title.toLowerCase())
-        ? ListM.push(x)
-        : ""
-    );
-    this.setState({ Title: e.target.value, List: ListM });
-  };
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
 
   render() {
-    console.log(this.state.List);
     return (
       <div>
-     <h1>Nirlarl</h1>
-          <Route exact path="/" component={LAndingpage} />
-
-          <div
-            style={{
-              display: this.state.Title.length > 0 ? "block" : "none",
-            }}
-            className="Suggestion_Box"
-          >
-            <ul>
-              {this.state.List.map((x) => (
-                <li>{x}</li>
-              ))}
-            </ul>
-          </div>
-
-          <Route path="/Productpage" component={productpage} />
-      
+        <Switch>
+          <Route
+            path="/LOGPAGE"
+            render={(props) => <LOGINLOGOUT {...props} />}
+          />
+          <Route
+            exact
+            path="/"
+            render={(props) => <LAndingpage {...props} />}
+          />
+          <Route path="/productpage/:productName" component={productpage} />
+          <Route path="/CARTPAGE/" component={Cartpage} />
+        </Switch>
       </div>
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    courentuser: (user) => dispatch(Courrentuser(user)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);

@@ -90,3 +90,16 @@ button {
 
 
 
+.span{
+    font-size: 14px;
+    font-weight: 900;
+    position: relative;
+    border: solid blue;
+    border-radius: 60%;
+    height: 14px;
+    width: 8px;
+    background: blue;
+    bottom:0.5em;
+  
+    
+}

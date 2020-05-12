@@ -14,7 +14,7 @@ export default class Landingpageheader extends Component {
 
   render() {
     return <div>
-        <Header Change = {this.props.Change} />
+        <Header  Change = {this.props.Change} />
     </div>
   }
 }
