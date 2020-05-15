@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "/home/bhumika/nirakar/travell-app/src/product/product.css";
+import { NO_OFITEM } from "../ProductUTILIT";
 import DESCRIPTIONBOX from "./description";
-
+import { TOTALINCART } from "../ProductUTILIT";
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
@@ -70,18 +71,17 @@ class Prouctartical extends Component {
   };
 
   render() {
-    console.log(this.props);
     console.log(this.props.CARTITEM);
+    const DATA = this.props.CARTITEM;
     const DATA2 = this.state.image;
     return (
       <div>
         <div className="STICKY_CARD">
           <div className="Mainbox_Filter">
             <div className="FILTER_BOX">
-              <button onClick={this.ONCHANGE_CART}>
-                MY CART
-              </button>
+              <button onClick={this.ONCHANGE_CART}>MY CART</button>
             </div>
+            <div> {DATA} </div>
             <div className="FILTER_BOX">
               <button name="FILTER" onClick={this.ONCHANGE}>
                 <h3 className="TITL">SORT</h3>
@@ -94,11 +94,18 @@ class Prouctartical extends Component {
               display: this.state.CART_display ? "block" : "none",
             }}
           >
-            <div>ITEM Name</div>
+            <div>
+              {this.props.TOTALINCART.map((item) => (
+                <div>
+                  <div>ITEM NAME : {item.title}</div>
+                  <div>ITEM QUANTITY : {item.Quantity}</div>
+                </div>
+              ))}
+            </div>
 
-            <Link to= {`/CARTPAGE`}>
-              <button   style={{ backgroundColor: "pink" }}>
-                <h3>CHECK OUT ALL ITEM</h3>
+            <Link to={`/CARTPAGE`}>
+              <button style={{ backgroundColor: "pink" }}>
+                <h5>CHECK OUT ALL ITEM</h5>
               </button>
             </Link>
           </div>
@@ -158,10 +165,9 @@ class Prouctartical extends Component {
 const mapStateToprops = (state) => {
   return {
     DATA: state.CARTDATA.DATA,
-    CARTITEM : state.CARTDATA.CARTITEM
+    CARTITEM: NO_OFITEM(state),
+    TOTALINCART: TOTALINCART(state),
   };
 };
-
-
 
 export default connect(mapStateToprops, null)(Prouctartical);

@@ -11,10 +11,20 @@ class description extends Component {
     this.state = {};
   }
 
+
+
+
+
   render() {
     console.log(this.props.ITEMDATA);
     console.log(this.props.Itam.title)
     console.log(this.props.Itam)
+
+
+   
+
+
+
     return (
       <div>
         <div className="Item">
@@ -28,7 +38,7 @@ class description extends Component {
             <div>
               <Link to={`/CARTPAGE/`}>
                 <button
-                  onClick={() => this.props.Buynow(this.props.Itam)}
+                  onClick={() => this.props.Buynow(this.props.Itam.title)}
                   style={{ marginTop: "1em" }}
                   className="button"
                 >
@@ -113,11 +123,13 @@ const mapDispatchToProps = (Dispatch) => {
   return {
     Buynow: (Item) => Dispatch(BUYNOW(Item)),
     ADDTOCART: (payload) => Dispatch(ADDTOCART(payload)),
+   
   };
 };
 const mapStatetoProps = (state) => {
   return {
     ITEMDATA: state.CARTDATA.CARTITEM
+
   };
 
 }

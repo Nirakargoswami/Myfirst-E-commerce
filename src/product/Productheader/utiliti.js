@@ -1,15 +1,18 @@
-import DATA from "../../alldata/alldata";
 
-export const utiliti = (props, dATA) => {
-   
-const NewDATA = [] ;
+
+export const utiliti = (props, Data,DATA) => {
+  const NewDATA = [];
 
   const REGX = /[/]/gi;
 
-  
-
-  
-     DATA.map((ITEM) =>
+  const NEWDATA = Data.find(
+    (item) =>
+      item.title.toLowerCase().replace(REGX, "") ===
+      props.toLowerCase().replace(REGX, "")
+  );
+  NEWDATA
+    ? Data.map((item) => NewDATA.push({ ...item, Quantity: item.Quantity + 1 }))
+    : DATA.map((ITEM) =>
         ITEM.map((item) =>
           item.title.toLowerCase().replace(REGX, "") ===
           props.toLowerCase().replace(REGX, "")
@@ -18,24 +21,9 @@ const NewDATA = [] ;
         )
       );
 
-  return NewDATA;
-};
-
-export const Buyitem = (item) => {
-  const ITEMDATA = [];
-
-  const REGX = /[/]/gi;
-  DATA.map((ITEM) =>
-    ITEM.map((itam) =>
-      itam.title.toLowerCase().replace(REGX, "") ===
-      item.title.toLowerCase().replace(REGX, "")
-        ? ITEMDATA.push({ ...itam, Quantity: 1 })
-        : null
-    )
+  return (
+    
+    NewDATA
   );
-
-
-  return {
-    ITEMDATA,
-  };
 };
+

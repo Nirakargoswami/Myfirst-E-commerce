@@ -17,3 +17,10 @@ export const BUYNOW = (Payload) => {
     Payload: Payload,
   };
 };
+export const CLEANUP = (Payload) => {
+  return {
+    type: "CLEANUP",
+    
+    Payload: Payload,
+  };
+};
