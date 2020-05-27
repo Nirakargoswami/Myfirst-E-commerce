@@ -5,7 +5,7 @@
 
 /* Layout  */
 
-.Mainbox {
+/* .Mainbox { 
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   margin: 0;
   background-color: rgba(41, 41, 238, 0.904);
   padding: 7px;
-}
+} */
 
 /* Navigation */
 
@@ -24,9 +24,7 @@
 .Spacearround {
   justify-content: space-around;
 }
-.Center {
-  align-items: center;
-}
+
 .box1 {
   max-width: 25%;
 }
@@ -39,14 +37,12 @@
 }
 
 .Navigation {
-  display: flex;
-  flex-direction: row;
   max-width: 100%;
   margin-top: 0.5em;
 }
 
 .Logo {
-  max-width: 100%;
+  max-width: 50%;
   color: white;
   object-fit: cover;
   margin: 0.4em;
@@ -74,32 +70,24 @@ button {
   background-color: transparent;
 }
 
-
 /* style for serchbox  */
 
-.Suggestion_Box{
-  
+.Suggestion_Box {
   position: relative;
   border: 1px black solid;
   width: 100%;
   padding: 0.5em;
   z-index: 50;
-
 }
 
-
-
-
-.span{
-    font-size: 14px;
-    font-weight: 900;
-    position: relative;
-    border: solid blue;
-    border-radius: 60%;
-    height: 14px;
-    width: 8px;
-    background: blue;
-    bottom:0.5em;
-  
-    
+.span {
+  font-size: 14px;
+  font-weight: 900;
+  position: relative;
+  border: solid blue;
+  border-radius: 60%;
+  height: 14px;
+  width: 8px;
+  background: blue;
+  bottom: 0.5em;
 }

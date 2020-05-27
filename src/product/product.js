@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "/home/bhumika/nirakar/travell-app/src/allcomponent/header/headre.css";
 import "/home/bhumika/nirakar/travell-app/src/product/product.css";
 import Prouctartical from "./ProductArtical/artical";
-
+import {BUTTON}  from "../allcomponent/newcomonent"
 export default class Productpage extends Component {
   constructor(props) {
     super(props);
@@ -17,13 +17,13 @@ export default class Productpage extends Component {
           <div>
             <Prouctartical NEWDATA={this.props.match.params.productName} />
             <div>
-              <button
+              <BUTTON
                 style={{ color: "black" }}
                 onClick={() => this.props.history.push("/")}
                 type="button"
               >
-                <h3>BACK to home</h3>!
-              </button>
+                <h5>BACK to home</h5>!
+              </BUTTON>
             </div>
           </div>
 
