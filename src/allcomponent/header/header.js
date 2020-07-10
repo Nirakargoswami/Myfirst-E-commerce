@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./headre.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import BAR from "/home/bhumika/nirakar/travell-app/src/menu.svg";
-
+import {NO_OFITEM} from "../../product/ProductUTILIT";
 import { Link } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -12,16 +12,14 @@ import {
   BOX,
   IMAGE,
   INPUT,
-  
   SEARCHBOX_CONTAINE,
-  
 } from "../newcomonent";
 
 import {
   HEADER_SEARCHBOX,
   HEADER_LOGOBOX,
   HEADER_LINKS,
-  HEADER
+  HEADER,
 } from "./hearder_style";
 import { connect } from "react-redux";
 import {
@@ -29,7 +27,7 @@ import {
   faCartArrowDown,
   faSearch,
   faSdCard,
-  faBell
+  faBell,
 } from "@fortawesome/free-solid-svg-icons";
 import LOGOIMAGE from "/home/bhumika/nirakar/travell-app/src/LOGO.svg";
 import { auth } from "../../Firebaseconfiguration/firebase";
@@ -49,8 +47,8 @@ class header extends Component {
   };
 
   render() {
-    console.log(this.props.MYuser);
-    console.log("checking user input");
+   
+    console.log("landing page is rendering");
 
     return (
       <HEADER column="column" width="100">
@@ -78,7 +76,6 @@ class header extends Component {
                 placeholder="sercehe here products and item"
               ></INPUT>
             </BOX>
-            
           </HEADER_SEARCHBOX>
           <HEADER_LINKS width="50">
             <Containar style={{ alignItems: "center" }}>
@@ -90,6 +87,7 @@ class header extends Component {
               <BOX width="20">
                 <ICON width="8">
                   <FontAwesomeIcon icon={faCartArrowDown} />
+    <spane>{this.props.cartITEM}</spane>
                 </ICON>
               </BOX>
               <BOX width="20">
@@ -133,15 +131,10 @@ class header extends Component {
 const mapStateToprops = (state) => {
   return {
     MYuser: state.Courrentuser.User,
+    cartITEM : NO_OFITEM(state),
   };
 };
 
+
+
 export default connect(mapStateToprops)(header);
-
-
-
-
-
-
-
-

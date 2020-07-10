@@ -32,6 +32,7 @@ class landingpage extends Component {
   };
 
   render() {
+    console.log(  "checking which pros is commoing from the main  page"  +this.props.history)
     return (
       <div>
         <Header  

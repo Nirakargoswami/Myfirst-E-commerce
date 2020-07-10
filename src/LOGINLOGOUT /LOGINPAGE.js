@@ -43,12 +43,15 @@ class Login extends Component {
   };
 
   render() {
+    console.log("checking"+this.props.user);
     console.log("logpage");
     console.log(this.state.password);
        console.log(this.state.email);
     console.log(this.props.NEWUser + " no");
     console.log(this.props.NEWUser);
     return (
+
+      
       <div>
         {this.props.NEWUser ? (
           this.props.user.history.push("/")

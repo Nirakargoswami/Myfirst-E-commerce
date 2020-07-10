@@ -11,6 +11,7 @@ export default class Productpage extends Component {
   }
 
   render() {
+    console.log("history fri the me "+this.props);
     return (
       <div>
         <div className="Product_Main">
@@ -22,7 +23,7 @@ export default class Productpage extends Component {
                 onClick={() => this.props.history.push("/")}
                 type="button"
               >
-                <h5>BACK to home</h5>!
+                <h5>BACK to home</h5>
               </BUTTON>
             </div>
           </div>

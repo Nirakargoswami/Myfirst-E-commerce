@@ -1,0 +1,150 @@
+.MAINCARDBOX{
+ 
+  
+
+  
+border-bottom: 4px rgb(160, 160, 160) solid;
+ min-width:25%;
+  
+   height: auto;
+   display: flex;
+   flex-direction: column;
+}
+.CARDHEADER{
+  display: flex;
+
+  width: 100%;
+}
+
+.CARDBUTTON{
+  width: 20%;
+  margin: 4px;
+}
+.BUTTON{
+width: 93%;
+min-height: 55px;
+
+    border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  opacity:0.5;
+  font-size: 19px;
+ transition-timing-function: ease-out;
+ transition-duration: 2s;
+ transition-property: opacity;
+ ;
+  cursor: pointer;
+  border-radius: 100%;
+
+}
+.BUTTON:hover{
+  opacity: 1;
+}
+
+
+
+.OTHER{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin:0%;
+  align-items: center;
+}
+.BOX{
+  
+  display: flex;
+  flex-direction: column;
+  
+  min-height: 250px;
+ 
+}
+
+.Image{
+  width: 100%;
+
+}
+
+
+.BOXOFIMAGE{
+
+    object-fit: cover;
+ 
+}
+.IMAGEDISCRIPTION{
+  text-decoration: none;
+  color: rgb(51, 49, 49);
+  margin: 20px;
+
+}
+
+
+.OTHE{
+  width: 60%;
+  display: flex;
+justify-content: start;
+  margin:0%;
+align-items: center;
+}
+
+.DETAIL_DESCARIPTION{
+width: 100%;
+display: block;
+
+}
+
+
+
+
+  
+
+
+.CARD{
+
+  display: flex;
+
+  width: 100%;
+  flex-direction: column;
+ position: relative;
+}
+
+.CARD_DETAIL{
+margin: 10px;
+padding: 10px;
+  display: none;
+ width: 100%;
+ 
+}
+
+
+.CARD:hover .CARD_DETAIL{
+  display: block
+}
+
+
+.ON{
+width: 96%;
+min-height: 60px;
+  background-color: rgb(126, 126, 126); /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  opacity:0.5;
+  font-size: 19px;
+ transition-timing-function: ease-out;
+ transition-duration: 0.5s;
+ transition-property: transform;
+ ;
+ 
+ ;
+  cursor: pointer;
+  border-radius: 200px;
+
+}
+.ON:hover{
+  opacity: 1;
+transform: rotate(180deg)
+}

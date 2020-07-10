@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import INPUT from "./Inputform";
+import ININPUT from "./Inputform";
+import "./Loginpage.css";
+import  INPUT from "./Inputform";
 import "./Loginpage.css";
 import { auth } from "../Firebaseconfiguration/firebase";
 import userprofile from "../Firebaseconfiguration/firebase";

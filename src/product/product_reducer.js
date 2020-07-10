@@ -4,6 +4,7 @@ import  Buyitem  from "../product/Productheader/ONEMORE";
  export const Intialstate = {
   DATA: [],
   CARTITEM: [],
+  ispadimg: "false"
 };
 const Product_DATA = (state = Intialstate, action) => {
   switch (action.type) {
@@ -18,13 +19,14 @@ const Product_DATA = (state = Intialstate, action) => {
       return {
         ...state,
         CARTITEM: Buyitem(action.Payload),
+        ispadimg: "true"
       };
-    case "CLEANUP": {
+    case "CLEANUP": 
       return {
         ...state,
         CARTITEM: [],
       };
-    }
+    
     default:
       return state;
   }

@@ -13,7 +13,9 @@ import Cartpage from "./CARTPAGE/Cartpage";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      user: ""
+    };
   }
   unsubscribeFromAuth = null;
 
@@ -25,13 +27,14 @@ class App extends Component {
       if (user) {
         const userinfo = await userprofile(user);
         userinfo.onSnapshot((snapeshot) => {
+        console.log(snapeshot.data());
           this.setState({
             user: {
               id: snapeshot.id,
               ...snapeshot.data(),
             },
           });
-        });
+        } )
       }
     });
   }
@@ -41,6 +44,8 @@ class App extends Component {
   }
 
   render() {
+    const {id,name} = {...this.state.user};
+console.log("this is user" + name );
     return (
       <div>
         <Switch>
@@ -51,7 +56,7 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={(props) => <LAndingpage {...props} />}
+             component={LAndingpage} 
           />
           <Route path="/productpage/:productName" component={productpage} />
           <Route path="/CARTPAGE/" component={Cartpage} />

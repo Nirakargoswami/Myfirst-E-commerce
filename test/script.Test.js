@@ -1,1 +1,0 @@
-it("this is s test")

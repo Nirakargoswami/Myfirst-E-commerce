@@ -85,6 +85,7 @@ class Prouctartical extends Component {
   };
 
   render() {
+  console.log("this si cart item data renderring")
     console.log(this.props.CARTITEM);
 const WIDTH = {
   1: 100,
